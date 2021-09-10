@@ -19,12 +19,12 @@ using namespace std;
 
 int i,degree;
 
-int cal1(string in1) //ÆÇ´Ü½Ä ¾²±â; 
+int cal1(string in1) //íŒë‹¨ì‹ ì“°ê¸°; 
 {
 	int sum1=0;
-	for(int i=0;i<in1.length();i++) //input±æÀÌ°¡ ±æ¾î¼­ string À¸·Î ÀÔ·Â; 
+	for(int i=0;i<in1.length();i++) //inputê¸¸ì´ê°€ ê¸¸ì–´ì„œ string ìœ¼ë¡œ ì…ë ¥; 
 	{
-		sum1+=in1[i]-'0'; //º¯È¯; 
+		sum1+=in1[i]-'0'; //ë³€í™˜; 
 	}
 	return sum1; 	
 } 
@@ -42,17 +42,17 @@ int main()
 		}	
 		int digitsum=0;
 		
-		digitsum=cal1(in1); //°ª ÀÔ·ÂÇÏ°í ¹Ù·Î ÆÇ´Ü µé¾î°¡±â; 
+		digitsum=cal1(in1); //ê°’ ì…ë ¥í•˜ê³  ë°”ë¡œ íŒë‹¨ ë“¤ì–´ê°€ê¸°; 
 		
 		while(digitsum>0&&digitsum!=9&&digitsum%9==0)
 		{
-			count++; //¾Õ¿¡²² ¼º°øÇÏ¸é count++ ÇÏ°í ½ÃÀÛ; 
-			temp=to_string(digitsum); //c++»õ·Î¿î ¹®¹ı to_string; 
-			digitsum=0; //0À¸·Î ¼±¾ğ ÇØÁà¾ßÇÔ; 
-			digitsum=cal1(temp); //±×¸®°í ÆÇ´Ü½ÄÀÇ Á¶°ÇÀ» ¸¸Á·ÇÏÁü ¸ø ÇÑ´Ù¸é ´Ù½Ã ÆÇ´ÜÇÔ¼ö·Î ÀÌµ¿; 
+			count++; //ì•ì—ê»˜ ì„±ê³µí•˜ë©´ count++ í•˜ê³  ì‹œì‘; 
+			temp=to_string(digitsum); //c++ìƒˆë¡œìš´ ë¬¸ë²• to_string; 
+			digitsum=0; //0ìœ¼ë¡œ ì„ ì–¸ í•´ì¤˜ì•¼í•¨; 
+			digitsum=cal1(temp); //ê·¸ë¦¬ê³  íŒë‹¨ì‹ì˜ ì¡°ê±´ì„ ë§Œì¡±í•˜ì§ ëª» í•œë‹¤ë©´ ë‹¤ì‹œ íŒë‹¨í•¨ìˆ˜ë¡œ ì´ë™; 
 		}
 		
-		if(digitsum==9) //¸¶Áö¸·¼ıÀÚ°¡ 9¸éÀº  count++; 
+		if(digitsum==9) //ë§ˆì§€ë§‰ìˆ«ìê°€ 9ë©´ì€  count++; 
 		{
 			count++;
 		}
@@ -68,57 +68,3 @@ int main()
 	}
 return 0;
 }
-
-
-/*
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main()
-{
-    string num, tmp;
-    int digitSum, degree;
-
-    cin >> num;
-    while (num != "0")
-	{
-        digitSum = 0;
-        degree = 0;
-        
-        // check if digitSum is multiple of 9 
-        for (int i = 0; i < num.length(); i++)
-		{
-            digitSum = digitSum + (num[i] - '0');
-        }
-        
-        // if digitSum is multiple of 9, check its 9-degree
-        while (digitSum != 0 && digitSum != 9 && digitSum % 9 == 0)
-		{
-            degree++;
-            tmp = to_string(digitSum);
-            digitSum = 0;
-            for (int i = 0; i < tmp.length(); i++)
-			{
-                digitSum = digitSum + (tmp[i] - '0');
-            }
-        }
-        if(digitSum == 9)
-		{
-            degree++;
-        }
-        
-        if (degree == 0)
-		{
-            cout << num << " is not a multiple of 9." << endl;
-        } 
-		else 
-		{
-            cout << num << " is a multiple of 9 and has 9-degree " << degree << "." << endl;
-        }
-
-        cin >> num;
-    }
-    return 0;
-}
-*/
